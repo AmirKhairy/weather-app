@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'condition.dart';
 
 class Day {
@@ -73,9 +75,9 @@ class Day {
         uv: (json['uv'] as num?)?.toDouble(),
       );
     } catch (e, stackTrace) {
-      print("Error parsing Day.fromJson: $e");
-      print("Stack trace: $stackTrace");
-      print("Raw JSON: $json");
+      log("Error parsing Day.fromJson: $e");
+      log("Stack trace: $stackTrace");
+      log("Raw JSON: $json");
       rethrow; // Rethrow for debugging
     }
   }

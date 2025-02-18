@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,6 +22,20 @@ class WeatherCubit extends Cubit<WeatherStates> {
     }).catchError((onError) {
       log(onError.toString());
       emit(WeatherError());
+    });
+  }
+
+  WeatherModel? searchModel;
+  Future<void> getSearch({required String location}) async {
+    emit(SearchLoading());
+
+    await apiService.fetchWeather(location: location).then((value) {
+      searchModel = WeatherModel.fromJson(value);
+      log(searchModel!.current!.toString());
+      emit(SearchSuccess());
+    }).catchError((onError) {
+      log(onError.toString());
+      emit(SearchError());
     });
   }
 }

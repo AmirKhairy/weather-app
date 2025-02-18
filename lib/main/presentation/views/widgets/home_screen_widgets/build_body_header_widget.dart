@@ -1,24 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/main/presentation/manager/cubit/weather_cubit.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:weather_app/main/data/models/weather_model/weather_model.dart';
 
 class BuildBodyHeaderWidget extends StatelessWidget {
   const BuildBodyHeaderWidget(
       {super.key, required this.cubit, required this.scaffoldKey});
-  final WeatherCubit cubit;
+  final WeatherModel cubit;
   final GlobalKey<ScaffoldState> scaffoldKey;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Icon(
-          Icons.location_on,
-          size: 20,
+        FaIcon(
+          FontAwesomeIcons.locationDot,
           color: Colors.white,
+          size: 20,
         ),
         SizedBox(width: 5),
         Text(
-          "${cubit.weatherModel?.location!.name},",
+          "${cubit.location!.name},",
           style: TextStyle(
             fontSize: 22,
             fontWeight: FontWeight.w400,
@@ -26,7 +27,7 @@ class BuildBodyHeaderWidget extends StatelessWidget {
           ),
         ),
         Text(
-          cubit.weatherModel?.location!.country ?? "",
+          cubit.location!.country ?? "",
           style: TextStyle(
             fontSize: 22,
             fontWeight: FontWeight.w400,
@@ -38,10 +39,10 @@ class BuildBodyHeaderWidget extends StatelessWidget {
           onPressed: () {
             scaffoldKey.currentState?.openEndDrawer();
           },
-          icon: Icon(
-            Icons.menu,
-            size: 30,
+          icon: FaIcon(
+            FontAwesomeIcons.barsStaggered,
             color: Colors.white,
+            size: 25,
           ),
         ),
       ],

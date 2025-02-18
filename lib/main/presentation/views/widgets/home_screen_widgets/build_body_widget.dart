@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/main/presentation/manager/cubit/weather_cubit.dart';
+import 'package:weather_app/main/data/models/weather_model/weather_model.dart';
 import 'package:weather_app/main/presentation/views/widgets/home_screen_widgets/build_body_daily_forecast_widget.dart';
 import 'package:weather_app/main/presentation/views/widgets/home_screen_widgets/build_body_date_widget.dart';
 import 'package:weather_app/main/presentation/views/widgets/home_screen_widgets/build_body_details_widget.dart';
@@ -12,7 +12,7 @@ class BuildBodyWidget extends StatelessWidget {
   const BuildBodyWidget(
       {super.key, required this.scaffoldKey, required this.cubit});
   final GlobalKey<ScaffoldState> scaffoldKey;
-  final WeatherCubit cubit;
+  final WeatherModel cubit;
   @override
   Widget build(BuildContext context) {
     return Stack(

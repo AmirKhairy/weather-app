@@ -7,8 +7,7 @@ import 'package:weather_app/main/presentation/views/widgets/welcom_screen_wedgit
 import 'package:weather_app/main/presentation/views/widgets/welcom_screen_wedgits/build_title_widget.dart';
 
 class WelcomeScreen extends StatelessWidget {
-  final TextEditingController _controller =
-      TextEditingController(text: 'cairo');
+  final TextEditingController _controller = TextEditingController();
 
   WelcomeScreen({super.key});
 

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'condition.dart';
 
 class Current {
@@ -99,9 +101,9 @@ class Current {
         gustKph: (json['gust_kph'] as num?)?.toDouble(),
       );
     } catch (e, stackTrace) {
-      print("Error parsing Current.fromJson: $e");
-      print("Stack trace: $stackTrace");
-      print("Raw JSON: $json");
+      log("Error parsing Current.fromJson: $e");
+      log("Stack trace: $stackTrace");
+      log("Raw JSON: $json");
       rethrow; // Rethrow for debugging
     }
   }

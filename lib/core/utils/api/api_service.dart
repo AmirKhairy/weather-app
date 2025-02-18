@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:dio/dio.dart';
 import 'package:weather_app/core/utils/api/api_keys.dart';
 

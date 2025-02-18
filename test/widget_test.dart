@@ -7,13 +7,20 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:weather_app/core/utils/shared_preferences/cache_helper.dart';
 
 import 'package:weather_app/main.dart';
+import 'package:weather_app/main/presentation/views/home_screen.dart';
+import 'package:weather_app/main/presentation/views/welcom_screen.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget(MyApp(
+      openScreen: CacheHelper.getString(key: 'location') == null
+          ? WelcomeScreen()
+          : HomeScreen(),
+    ));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

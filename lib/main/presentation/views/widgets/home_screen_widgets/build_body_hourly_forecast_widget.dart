@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/main/presentation/manager/cubit/weather_cubit.dart';
+import 'package:weather_app/main/data/models/weather_model/weather_model.dart';
 
 class BuildBodyHourlyForecastWidget extends StatelessWidget {
   const BuildBodyHourlyForecastWidget({super.key, required this.cubit});
-  final WeatherCubit cubit;
+  final WeatherModel cubit;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -11,11 +11,9 @@ class BuildBodyHourlyForecastWidget extends StatelessWidget {
       child: ListView.builder(
         physics: BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
-        itemCount:
-            cubit.weatherModel?.forecast?.forecastday?[0].hour?.length ?? 0,
+        itemCount: cubit.forecast?.forecastday?[0].hour?.length ?? 0,
         itemBuilder: (context, index) {
-          var hourlyData =
-              cubit.weatherModel?.forecast?.forecastday?[0].hour?[index];
+          var hourlyData = cubit.forecast?.forecastday?[0].hour?[index];
 
           if (hourlyData == null) return SizedBox();
 
@@ -69,7 +67,7 @@ class BuildBodyHourlyForecastWidget extends StatelessWidget {
 
                 // Weather Icon
                 Image.network(
-                  "https:${cubit.weatherModel?.forecast!.forecastday![0].day!.condition?.icon ?? ""}",
+                  "https:${cubit.forecast!.forecastday![0].day!.condition?.icon ?? ""}",
                   width: 40,
                   height: 40,
                   errorBuilder: (context, error, stackTrace) {

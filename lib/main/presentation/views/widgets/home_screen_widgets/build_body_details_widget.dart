@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/main/presentation/manager/cubit/weather_cubit.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:weather_app/main/data/models/weather_model/weather_model.dart';
 
 class BuildBodyDetailsWidget extends StatelessWidget {
   const BuildBodyDetailsWidget({super.key, required this.cubit});
-  final WeatherCubit cubit;
+  final WeatherModel cubit;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,10 +22,14 @@ class BuildBodyDetailsWidget extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Icon(Icons.water_drop, color: Colors.white, size: 15),
+                  FaIcon(
+                    FontAwesomeIcons.droplet,
+                    color: Colors.white,
+                    size: 15,
+                  ),
                   SizedBox(width: 5),
                   Text(
-                    '${cubit.weatherModel?.current!.humidity}',
+                    '${cubit.current!.humidity}',
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 18,
@@ -51,10 +56,14 @@ class BuildBodyDetailsWidget extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Icon(Icons.wind_power, color: Colors.white, size: 15),
+                  FaIcon(
+                    FontAwesomeIcons.wind,
+                    color: Colors.white,
+                    size: 15,
+                  ),
                   SizedBox(width: 5),
                   Text(
-                    '${cubit.weatherModel?.current!.windKph} km/h',
+                    '${cubit.current!.windKph} km/h',
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 18,
@@ -81,10 +90,14 @@ class BuildBodyDetailsWidget extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Icon(Icons.thermostat, color: Colors.white, size: 15),
+                  FaIcon(
+                    FontAwesomeIcons.tachometerAlt,
+                    color: Colors.white,
+                    size: 15,
+                  ),
                   SizedBox(width: 5),
                   Text(
-                    '${cubit.weatherModel?.current!.pressureIn}',
+                    '${cubit.current!.pressureIn}',
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 18,

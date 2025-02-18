@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'condition.dart';
 
 class Hour {
@@ -114,9 +116,9 @@ class Hour {
         uv: (json['uv'] as num?)?.toInt(),
       );
     } catch (e, stackTrace) {
-      print("Error parsing Hour.fromJson: $e");
-      print("Stack trace: $stackTrace");
-      print("Raw JSON: $json");
+      log("Error parsing Hour.fromJson: $e");
+      log("Stack trace: $stackTrace");
+      log("Raw JSON: $json");
       rethrow; // This will throw the error so you can debug it
     }
   }

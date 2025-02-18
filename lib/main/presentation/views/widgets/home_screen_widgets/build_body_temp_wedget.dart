@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/main/presentation/manager/cubit/weather_cubit.dart';
+import 'package:weather_app/main/data/models/weather_model/weather_model.dart';
 
 class BuildBodyTempWidget extends StatelessWidget {
   const BuildBodyTempWidget({super.key, required this.cubit});
-  final WeatherCubit cubit;
+  final WeatherModel cubit;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -12,7 +12,7 @@ class BuildBodyTempWidget extends StatelessWidget {
           clipBehavior: Clip.none,
           children: [
             Text(
-              "${cubit.weatherModel?.current!.tempC}",
+              "${cubit.current!.tempC}",
               style: TextStyle(
                 fontSize: 80,
                 fontWeight: FontWeight.bold,
@@ -39,7 +39,7 @@ class BuildBodyTempWidget extends StatelessWidget {
           child: Row(
             children: [
               Image.network(
-                "https:${cubit.weatherModel?.forecast!.forecastday![0].day!.condition?.icon}",
+                "https:${cubit.forecast!.forecastday![0].day!.condition?.icon}",
                 width: 40,
                 height: 40,
                 errorBuilder: (context, error, stackTrace) {
@@ -47,7 +47,7 @@ class BuildBodyTempWidget extends StatelessWidget {
                 },
               ),
               Text(
-                "${cubit.weatherModel?.current!.condition!.text}",
+                "${cubit.current!.condition!.text}",
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,

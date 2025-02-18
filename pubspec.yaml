@@ -38,6 +38,8 @@ dependencies:
   flutter_bloc: ^9.0.0
   bloc: ^9.0.0
   shared_preferences: ^2.5.2
+  fluttertoast: ^8.2.12
+  font_awesome_flutter: ^10.8.0
 
 dev_dependencies:
   flutter_test:

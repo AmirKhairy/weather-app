@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/main/presentation/manager/cubit/weather_cubit.dart';
+import 'package:weather_app/main/data/models/weather_model/weather_model.dart';
+import 'package:weather_app/main/presentation/views/search_screen.dart';
 import 'package:weather_app/main/presentation/views/welcom_screen.dart';
 import 'package:weather_app/main/presentation/views/widgets/home_screen_widgets/build_drawer_menu_item_widget.dart';
 
 class BuildDrawerWidget extends StatelessWidget {
   const BuildDrawerWidget({super.key, required this.cubit});
-  final WeatherCubit cubit;
+  final WeatherModel cubit;
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -39,8 +40,7 @@ class BuildDrawerWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        cubit.weatherModel?.location!.name ??
-                            "", // Dynamic location
+                        cubit.location!.name ?? "", // Dynamic location
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 22,
@@ -48,8 +48,7 @@ class BuildDrawerWidget extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        cubit.weatherModel?.location!.country ??
-                            "", // Dynamic country
+                        cubit.location!.country ?? "", // Dynamic country
                         style: TextStyle(
                           color: Colors.white70,
                           fontSize: 16,
@@ -70,21 +69,27 @@ class BuildDrawerWidget extends StatelessWidget {
             child: Column(
               children: [
                 BuildDrawerMenuItemWidget(
-                  icon: Icons.edit_location,
-                  text: "Change Location",
+                  icon: Icons.search,
+                  text: "Search for a City",
                   onTap: () {
-                    Navigator.of(context).pushReplacement(
+                    Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => WelcomeScreen(),
+                        builder: (context) => SearchScreen(),
                       ),
                     );
                   },
                 ),
                 SizedBox(height: 10),
                 BuildDrawerMenuItemWidget(
-                  icon: Icons.search,
-                  text: "Search for a City",
-                  onTap: () {},
+                  icon: Icons.edit_location_alt,
+                  text: "Change Location",
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => WelcomeScreen(),
+                      ),
+                    );
+                  },
                 ),
               ],
             ),
@@ -94,4 +99,3 @@ class BuildDrawerWidget extends StatelessWidget {
     );
   }
 }
-
