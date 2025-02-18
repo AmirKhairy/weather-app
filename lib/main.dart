@@ -1,21 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/core/utils/constants/bloc_observer.dart';
+import 'package:weather_app/core/utils/constants/constants.dart';
 import 'package:weather_app/core/utils/shared_preferences/cache_helper.dart';
 import 'package:weather_app/main/presentation/manager/cubit/weather_cubit.dart';
 import 'package:weather_app/main/presentation/views/home_screen.dart';
+import 'package:weather_app/main/presentation/views/no_internet_screen.dart';
+import 'package:weather_app/main/presentation/views/splash_screen.dart';
 import 'package:weather_app/main/presentation/views/welcom_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
   await CacheHelper.init();
-  String? savedLocation = CacheHelper.getString(key: 'location');
 
-  runApp(MyApp(
-    openScreen: savedLocation == null ? WelcomeScreen() : HomeScreen(),
-    savedLocation: savedLocation,
-  ));
+  bool hasInternetConnection = await checkInternetConnection();
+
+  if (!hasInternetConnection) {
+    runApp(
+      MyApp(
+        openScreen: NoInternetApp(),
+      ),
+    );
+  } else {
+    String? savedLocation = CacheHelper.getString(key: 'location');
+
+    runApp(
+      MyApp(
+        openScreen: savedLocation == null ? WelcomeScreen() : HomeScreen(),
+        savedLocation: savedLocation,
+      ),
+    );
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -37,7 +53,7 @@ class MyApp extends StatelessWidget {
       },
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: openScreen,
+        home: SplashScreen(openScreen: openScreen),
       ),
     );
   }
