@@ -8,7 +8,7 @@ class BuildBackgroundWidget extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/images/home_bg.jpeg"),
+          image: AssetImage("assets/images/background_3.jpeg"),
           fit: BoxFit.cover,
         ),
       ),

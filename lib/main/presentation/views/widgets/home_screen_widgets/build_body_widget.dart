@@ -21,7 +21,7 @@ class BuildBodyWidget extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("assets/images/home_bg.jpg"),
+              image: AssetImage("assets/images/background_4.jpeg"),
               fit: BoxFit.cover,
             ),
           ),

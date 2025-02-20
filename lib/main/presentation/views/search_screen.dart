@@ -31,7 +31,7 @@ class SearchScreen extends StatelessWidget {
         return Scaffold(
           key: scaffoldKey,
           appBar: AppBar(
-            backgroundColor: Colors.blueAccent,
+            backgroundColor: const Color.fromARGB(255, 76, 1, 182),
             title: Text(
               'Search',
               style: TextStyle(color: Colors.white),
@@ -43,7 +43,7 @@ class SearchScreen extends StatelessWidget {
               height: double.infinity,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("assets/images/home_bg.jpg"),
+                  image: AssetImage("assets/images/background_4.jpeg"),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -68,7 +68,8 @@ class SearchScreen extends StatelessWidget {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(12),
                               ),
-                              backgroundColor: Colors.blueAccent,
+                              backgroundColor:
+                                  const Color.fromARGB(255, 76, 1, 182),
                             ),
                             child: state is SearchLoading
                                 ? CircularProgressIndicator(
@@ -83,7 +84,7 @@ class SearchScreen extends StatelessWidget {
                           hintText: "Enter city name",
                           hintStyle: TextStyle(color: Colors.white70),
                           filled: true,
-                          fillColor: Colors.white.withOpacity(0.2),
+                          fillColor: const Color.fromARGB(255, 152, 104, 226),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
                             borderSide: BorderSide.none,

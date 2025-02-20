@@ -10,7 +10,7 @@ class BuildDrawerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color.fromRGBO(127, 152, 104, 226),
       child: Column(
         children: [
           // Drawer Header with Gradient
@@ -19,7 +19,10 @@ class BuildDrawerWidget extends StatelessWidget {
             padding: EdgeInsets.all(20),
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [Colors.blue, Colors.lightBlueAccent],
+                colors: [
+                  const Color.fromARGB(255, 76, 1, 182),
+                  const Color.fromARGB(255, 152, 104, 226)
+                ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ),

@@ -14,7 +14,7 @@ class BuildDrawerMenuItemWidget extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 12, horizontal: 16),
         decoration: BoxDecoration(
-          color: Colors.blue.shade50,
+          color: const Color.fromARGB(255, 44, 7, 50),
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
@@ -26,13 +26,14 @@ class BuildDrawerMenuItemWidget extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Icon(icon, color: Colors.blue),
+            Icon(icon, color: Colors.white),
             SizedBox(width: 12),
             Text(
               text,
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w500,
+                color: Colors.white,
               ),
             ),
           ],
